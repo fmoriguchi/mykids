@@ -67,6 +67,12 @@ public final class Kid implements Serializable {
 	public Gender getGender() {
 		return gender;
 	}
+	
+	public Integer getAge() {
+		
+		//TODO Considerar dias e meses no calculo
+		return LocalDate.now().getYear() -  born.getYear(); 
+	}
 
 	@Override
 	public int hashCode() {

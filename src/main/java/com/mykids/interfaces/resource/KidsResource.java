@@ -8,6 +8,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,7 @@ public class KidsResource {
 	private KidsRepository kids;
 
 	@PostMapping
-	public Kid create(Kid kid) {
+	public Kid create(@RequestBody Kid kid) {
 		return kids.create(kid);
 	}
 
