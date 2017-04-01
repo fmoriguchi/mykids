@@ -8,10 +8,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.mykids.domain.model.Gender;
-import com.mykids.domain.model.Kid;
-import com.mykids.domain.model.KidsRepository;
-import com.mykids.domain.model.Name;
+import com.mykids.domain.model.person.Gender;
+import com.mykids.domain.model.person.Kid;
+import com.mykids.domain.model.person.KidsRepository;
+import com.mykids.domain.model.person.Name;
 
 @SpringBootApplication
 public class MykidsApplicationBoot {
@@ -24,8 +24,17 @@ public class MykidsApplicationBoot {
 	public CommandLineRunner registerRecords(KidsRepository repository) {
 
 		return (args) -> {
-
-			repository.create(new Kid(new Name("Maria", "Elisa Moriguchi", "Pitucha"), LocalDate.of(2012,Month.JULY, 31), Gender.FEMALE));
+			
+			Kid maria = Kid.builder()
+					.born(LocalDate.of(2012,Month.JULY,31))
+					.gender(Gender.FEMALE)
+					.name(Name.builder().firstName("Maria")
+							            .lastName("Elisa Moriguchi")
+							            .nickName("Picurrucha")
+					           .build())
+					.build();
+			
+			repository.save(maria);
 		};
 	}
 }

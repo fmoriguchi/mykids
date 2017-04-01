@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mykids.domain.model;
+package com.mykids.domain.model.person;
 
 /**
  * @author japa

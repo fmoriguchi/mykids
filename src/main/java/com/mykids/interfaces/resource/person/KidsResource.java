@@ -1,19 +1,20 @@
 /**
  * 
  */
-package com.mykids.interfaces.resource;
+package com.mykids.interfaces.resource.person;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mykids.domain.model.Kid;
-import com.mykids.domain.model.KidsRepository;
+import com.mykids.domain.model.person.Kid;
+import com.mykids.domain.model.person.KidsRepository;
 
 /**
  * @author japa
@@ -28,12 +29,18 @@ public class KidsResource {
 
 	@PostMapping
 	public Kid create(@RequestBody Kid kid) {
-		return kids.create(kid);
+		return kids.save(kid);
 	}
 
 	@GetMapping
 	public Collection<Kid> all() {
-		return this.kids.all();
+		return this.kids.findAll();
+	}
+	
+	@GetMapping(path="/{id}")
+	public Kid find(@PathVariable("id") Long id) {
+		
+		return this.kids.findOne(id);
 	}
 
 }
