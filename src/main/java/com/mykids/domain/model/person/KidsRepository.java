@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author japa
  *
  */
-public interface KidsRepository extends JpaRepository<Kid, Long> {
+public interface KidsRepository extends JpaRepository<Kid, String> {
 
 }

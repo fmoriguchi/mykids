@@ -3,6 +3,11 @@
  */
 package com.mykids.domain.model.localization;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+import com.mykids.domain.model.BaseEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,13 +19,14 @@ import lombok.NoArgsConstructor;
  *
  */
 @Data
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of="id")
-public final class Neighborhood {
-	
-	private Long id;
+@EqualsAndHashCode(callSuper = true)
+public final class Neighborhood extends BaseEntity {
+
+	@Column
 	private String name;
 
 }

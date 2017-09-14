@@ -10,32 +10,26 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import com.mykids.domain.model.BaseEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
  * @author japa
  *
  */
-
 @Entity
-@Table
-
 @Data
 @Builder
+@EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor(access=PROTECTED)
 @NoArgsConstructor(access=PROTECTED)
-public final class Teacher {
-	
-	@Id
-	@GeneratedValue
-	private Long id;
+public final class Teacher extends BaseEntity   {
 	
 	@Embedded
 	private Name name;

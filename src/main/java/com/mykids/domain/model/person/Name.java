@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
  *
  */
 
-@Embeddable
 
 @Data
 @Builder
+@Embeddable
 @AllArgsConstructor(access=PROTECTED)
 @NoArgsConstructor(access=PROTECTED)
 public final class Name {

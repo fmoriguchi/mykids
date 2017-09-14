@@ -3,16 +3,14 @@
  */
 package com.mykids.domain.model.person;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import com.mykids.domain.model.BaseEntity;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -22,24 +20,16 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
-@Table
 @Entity
-
 @Data
 @Builder
-@EqualsAndHashCode(of="id")
+@EqualsAndHashCode(callSuper=true)
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @AllArgsConstructor(access=AccessLevel.PROTECTED)
-public final class Kid implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long id;
+public final class Kid  extends BaseEntity  {
 
 	@Embedded	
 	private Name name;

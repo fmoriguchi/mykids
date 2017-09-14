@@ -3,6 +3,11 @@
  */
 package com.mykids.domain.model.education;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import com.mykids.domain.model.BaseEntity;
 import com.mykids.domain.model.localization.Address;
 
 import lombok.AllArgsConstructor;
@@ -16,13 +21,16 @@ import lombok.NoArgsConstructor;
  *
  */
 @Data
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of="id")
-public final class EducationCenter {
+@EqualsAndHashCode(callSuper = true)
+public final class EducationCenter extends BaseEntity {
 
-	private Long id;
+	@Column
 	private String name;
+
+	@ManyToOne
 	private Address address;
 }

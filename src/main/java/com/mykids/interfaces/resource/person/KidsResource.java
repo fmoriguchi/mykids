@@ -38,7 +38,7 @@ public class KidsResource {
 	}
 	
 	@GetMapping(path="/{id}")
-	public Kid find(@PathVariable("id") Long id) {
+	public Kid find(@PathVariable("id") String id) {
 		
 		return this.kids.findOne(id);
 	}

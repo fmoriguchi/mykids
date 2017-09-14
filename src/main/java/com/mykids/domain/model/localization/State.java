@@ -3,6 +3,12 @@
  */
 package com.mykids.domain.model.localization;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import com.mykids.domain.model.BaseEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,13 +20,16 @@ import lombok.NoArgsConstructor;
  *
  */
 @Data
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of="id")
-public final class State {
+@EqualsAndHashCode(callSuper=true)
+public final class State  extends BaseEntity {
 
-	private Long id;
+	@Column
 	private String name;
+
+	@ManyToOne
 	private Country country;
 }
