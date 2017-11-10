@@ -14,20 +14,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 @Getter
 @Setter
 @MappedSuperclass
 @EqualsAndHashCode(of = "id")
-public abstract class BaseEntity {
+public abstract class EntityBase {
 
-/*	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-*/	
-	
 	@Id
 	@GeneratedValue(generator = "UUID")
 	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")

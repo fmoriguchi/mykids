@@ -14,24 +14,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
-
-
 @Data
 @Builder
 @Embeddable
-@AllArgsConstructor(access=PROTECTED)
-@NoArgsConstructor(access=PROTECTED)
+@AllArgsConstructor(access = PROTECTED)
+@NoArgsConstructor(access = PROTECTED)
 public final class Name {
 
 	@Column
 	private String firstName;
-	
+
 	@Column
 	private String lastName;
-	
+
 	@Column
 	private String nickName;
 

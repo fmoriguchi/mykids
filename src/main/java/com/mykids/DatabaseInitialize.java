@@ -22,15 +22,15 @@ import com.mykids.domain.model.person.KidsRepository;
 import com.mykids.domain.model.person.Name;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 @Configuration
-public class DatabaseInitialize {
+class DatabaseInitialize {
 	
 	@Bean
 	@Transactional
-	public CommandLineRunner registerRecords(KidsRepository kids, DailyRoutineRepository dailyRoutines) {
+	CommandLineRunner registerRecords(KidsRepository kids, DailyRoutineRepository dailyRoutines) {
 
 		return (args) -> {
 			
@@ -43,7 +43,18 @@ public class DatabaseInitialize {
 							            .build())
 					.build();
 			
+			Kid fabio = Kid.builder()
+					.born(LocalDate.of(1982,Month.APRIL,15))
+					.gender(Gender.MALE)
+					.name(Name.builder().firstName("Fabio")
+							            .lastName("Hiromitsu Moriguchi")
+							            .nickName("Japa")
+							            .build())
+					.build();
+			
+			
 			kids.save(maria);
+			kids.save(fabio);
 			
 			
 			Nutrition nutrition = Nutrition.builder()

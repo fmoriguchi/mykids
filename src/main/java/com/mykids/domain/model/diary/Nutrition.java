@@ -4,7 +4,6 @@
 package com.mykids.domain.model.diary;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
@@ -15,21 +14,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
-@Data
 @Builder
-@Embeddable 
-//@EqualsAndHashCode(of = "id")
+@Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public final class Nutrition {
 
-/*	@Id
-	@GeneratedValue
-	private Integer id;*/
-	
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Eat breakfast;
@@ -37,11 +30,11 @@ public final class Nutrition {
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Eat lunch;
-	
+
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Eat coffebreak;
-	
+
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Eat dinner;

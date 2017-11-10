@@ -4,7 +4,7 @@
 package com.mykids.domain.model.diary;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 public enum Eat {

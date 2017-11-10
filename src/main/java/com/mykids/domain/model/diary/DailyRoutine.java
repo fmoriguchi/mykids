@@ -12,7 +12,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 
-import com.mykids.domain.model.BaseEntity;
+import com.mykids.domain.model.EntityBase;
 import com.mykids.domain.model.person.Kid;
 
 import lombok.AccessLevel;
@@ -23,16 +23,16 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 @Entity
 @Builder
 @Data
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-public final class DailyRoutine extends BaseEntity {
+public final class DailyRoutine extends EntityBase {
 
 	@Column
 	private LocalDate day;

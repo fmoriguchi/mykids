@@ -3,6 +3,8 @@
  */
 package com.mykids.interfaces.resource.diary;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,31 +16,31 @@ import com.mykids.domain.model.diary.DailyRoutine;
 import com.mykids.domain.model.diary.DailyRoutineRepository;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 @RestController
-@RequestMapping("dailyroutine")
+@RequestMapping("dailyroutines")
 public class DailyRoutineResource {
 
+	private final DailyRoutineRepository dailyRoutines;
+
 	@Autowired
-	private final DailyRoutineRepository repository;
+	public DailyRoutineResource(DailyRoutineRepository dailyRoutines) {
 
-	public DailyRoutineResource(DailyRoutineRepository repository) {
-
-		this.repository = repository;
+		this.dailyRoutines = dailyRoutines;
 	}
-	
+
 	@GetMapping
-	public Iterable<DailyRoutine> all() {
-		
-		return repository.findAll();
+	public Collection<DailyRoutine> all() {
+
+		return dailyRoutines.findAll();
 	}
-	
+
 	@PostMapping
 	@Transactional
 	public DailyRoutine store(DailyRoutine dailyRoutine) {
-		
-		return repository.save(dailyRoutine);
+
+		return dailyRoutines.save(dailyRoutine);
 	}
 }

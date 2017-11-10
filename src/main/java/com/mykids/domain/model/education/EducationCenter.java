@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-import com.mykids.domain.model.BaseEntity;
+import com.mykids.domain.model.EntityBase;
 import com.mykids.domain.model.localization.Address;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 @Data
@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public final class EducationCenter extends BaseEntity {
+public final class EducationCenter extends EntityBase {
 
 	@Column
 	private String name;

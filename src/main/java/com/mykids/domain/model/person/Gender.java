@@ -4,7 +4,7 @@
 package com.mykids.domain.model.person;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 public enum Gender {

@@ -10,7 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
-import com.mykids.domain.model.BaseEntity;
+import com.mykids.domain.model.EntityBase;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -26,12 +26,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-@EqualsAndHashCode(callSuper=true)
-@NoArgsConstructor(access=AccessLevel.PROTECTED)
-@AllArgsConstructor(access=AccessLevel.PROTECTED)
-public final class Kid  extends BaseEntity  {
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+public final class Kid extends EntityBase {
 
-	@Embedded	
+	@Embedded
 	private Name name;
 
 	@Column
@@ -41,7 +41,7 @@ public final class Kid  extends BaseEntity  {
 	private Gender gender;
 
 	public Integer getAge() {
-		
+
 		return Period.between(this.born, LocalDate.now()).getYears();
 	}
 }

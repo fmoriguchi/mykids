@@ -17,15 +17,19 @@ import com.mykids.domain.model.person.Kid;
 import com.mykids.domain.model.person.KidsRepository;
 
 /**
- * @author japa
+ * @author fmoriguchi
  *
  */
 @RestController
 @RequestMapping("/kids")
 public class KidsResource {
 
+	private final KidsRepository kids;
+	
 	@Autowired
-	private KidsRepository kids;
+	public KidsResource(KidsRepository kids) {
+		this.kids = kids;
+	}
 
 	@PostMapping
 	public Kid create(@RequestBody Kid kid) {
@@ -36,10 +40,10 @@ public class KidsResource {
 	public Collection<Kid> all() {
 		return this.kids.findAll();
 	}
-	
-	@GetMapping(path="/{id}")
+
+	@GetMapping(path = "/{id}")
 	public Kid find(@PathVariable("id") String id) {
-		
+
 		return this.kids.findOne(id);
 	}
 
