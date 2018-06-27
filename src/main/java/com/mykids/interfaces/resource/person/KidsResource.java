@@ -4,6 +4,7 @@
 package com.mykids.interfaces.resource.person;
 
 import java.util.Collection;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,9 +43,9 @@ public class KidsResource {
 	}
 
 	@GetMapping(path = "/{id}")
-	public Kid find(@PathVariable("id") String id) {
+	public Kid find(@PathVariable("id") UUID id) {
 
-		return this.kids.findOne(id);
+		return this.kids.findById(id).orElseThrow(null);
 	}
 
 }

@@ -1,7 +1,6 @@
-/**
- * 
- */
 package com.mykids.domain.model;
+
+import java.util.UUID;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,5 +25,5 @@ public abstract class EntityBase {
 	@Id
 	@GeneratedValue(generator = "UUID")
 	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-	private String id;
+	private UUID id;
 }

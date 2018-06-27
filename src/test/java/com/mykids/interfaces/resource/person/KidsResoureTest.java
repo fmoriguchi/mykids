@@ -3,11 +3,6 @@ package com.mykids.interfaces.resource.person;
 import java.util.Collection;
 
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.mykids.domain.model.person.Kid;
 
@@ -15,7 +10,7 @@ import com.mykids.domain.model.person.Kid;
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class KidsResoureTest {
 
-	@Autowired
+	//@Autowired
 	private KidsResource kids;
 	
 	//@Test

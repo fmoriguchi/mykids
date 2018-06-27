@@ -3,6 +3,8 @@
  */
 package com.mykids.domain.model.diary;
 
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +13,6 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public interface DailyRoutineRepository extends JpaRepository<DailyRoutine, String> {
+public interface DailyRoutineRepository extends JpaRepository<DailyRoutine, UUID> {
 
 }
