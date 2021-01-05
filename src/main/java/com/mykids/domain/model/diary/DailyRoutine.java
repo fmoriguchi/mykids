@@ -46,5 +46,4 @@ public final class DailyRoutine extends EntityBase {
 
 	@OneToOne
 	private Kid kid;
-
 }

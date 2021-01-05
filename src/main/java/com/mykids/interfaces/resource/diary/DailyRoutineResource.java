@@ -3,12 +3,16 @@
  */
 package com.mykids.interfaces.resource.diary;
 
-import java.util.Collection;
+import static org.springframework.http.ResponseEntity.notFound;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.Collection;
+import java.util.UUID;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,13 +24,12 @@ import com.mykids.domain.model.diary.DailyRoutineRepository;
  *
  */
 @RestController
-@RequestMapping("dailyroutines")
-public class DailyRoutineResource {
+@RequestMapping("daily-routines")
+class DailyRoutineResource {
 
 	private final DailyRoutineRepository dailyRoutines;
 
-	@Autowired
-	public DailyRoutineResource(DailyRoutineRepository dailyRoutines) {
+	DailyRoutineResource(DailyRoutineRepository dailyRoutines) {
 
 		this.dailyRoutines = dailyRoutines;
 	}
@@ -37,9 +40,16 @@ public class DailyRoutineResource {
 		return dailyRoutines.findAll();
 	}
 
+	@GetMapping("{id}")
+	public ResponseEntity<DailyRoutine> find(@PathVariable UUID id) {
+
+		return dailyRoutines.findById(id)
+							.map(ResponseEntity::ok)
+							.orElse(notFound().build());
+	}
+
 	@PostMapping
-	@Transactional
-	public DailyRoutine store(DailyRoutine dailyRoutine) {
+	public DailyRoutine store(@RequestBody DailyRoutine dailyRoutine) {
 
 		return dailyRoutines.save(dailyRoutine);
 	}
