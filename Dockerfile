@@ -1,5 +1,5 @@
-FROM adoptopenjdk/openjdk11
+FROM eclipse-temurin:17-jdk-focal
  
-COPY target/mykids-0.0.1-SNAPSHOT.jar /mykids.jar
+COPY target/mykids*.jar /mykids.jar
  
 CMD ["java", "-Xmx200m", "-jar", "/mykids.jar"]

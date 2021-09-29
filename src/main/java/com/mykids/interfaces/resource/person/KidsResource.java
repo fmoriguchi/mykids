@@ -3,20 +3,22 @@
  */
 package com.mykids.interfaces.resource.person;
 
+import static java.util.stream.Collectors.toList;
 import static org.springframework.http.ResponseEntity.notFound;
 
 import java.util.Collection;
 import java.util.UUID;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mykids.domain.model.person.Kid;
 import com.mykids.domain.model.person.KidsRepository;
 
 /**
@@ -35,22 +37,27 @@ class KidsResource {
 	}
 
 	@PostMapping
-	public Kid create(@RequestBody Kid kid) {
+	public KidView create(@RequestBody KidCreate kid) {
 		
-		return kids.save(kid);
+		return KidView.of(kids.save(kid.to()));
 	}
 
 	@GetMapping
-	public Collection<Kid> all() {
+	public Collection<KidView> all(@RequestParam(defaultValue = "0") Integer page, 
+								   @RequestParam(defaultValue = "20") Integer size) {
 		
-		return this.kids.findAll();
+		return kids.findAll(PageRequest.of(page, size))
+				   .stream()
+				   .map(KidView::of)
+				   .collect(toList());
 	}
 
 	@GetMapping(path = "{id}")
-	public ResponseEntity<Kid> find(@PathVariable("id") UUID id) {
+	public ResponseEntity<KidView> find(@PathVariable UUID id) {
 
-		return this.kids.findById(id)
-						.map(ResponseEntity::ok)
-						.orElse(notFound().build());
+		return kids.findById(id)
+				   .map(KidView::of)
+				   .map(ResponseEntity::ok)
+				   .orElse(notFound().build());
 	}
 }

@@ -4,6 +4,7 @@
 package com.mykids.domain.model.person;
 
 import static lombok.AccessLevel.PROTECTED;
+import static lombok.AccessLevel.PUBLIC;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Embeddable
-@AllArgsConstructor(access = PROTECTED)
+@AllArgsConstructor(access = PUBLIC)
 @NoArgsConstructor(access = PROTECTED)
 public final class Name {
 
