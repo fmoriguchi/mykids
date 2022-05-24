@@ -16,14 +16,14 @@ class KidTest {
 	void test() {
 
 		// A
-		Kid kid = Kid.builder().build();
+		var kid = Kid.builder().build();
 		kid.setBorn(LocalDate.now().minusYears(10));
 
 		// A
-		int age = kid.getAge();
+		var age = kid.getAge();
 
 		// A
-		assertEquals(age, 10);
+		assertEquals(10, age);
 
 	}
 

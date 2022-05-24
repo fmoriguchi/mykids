@@ -3,7 +3,6 @@
  */
 package com.mykids.interfaces.resource.person;
 
-import static java.util.stream.Collectors.toList;
 import static org.springframework.http.ResponseEntity.notFound;
 
 import java.util.Collection;
@@ -49,10 +48,10 @@ class KidsResource {
 		return kids.findAll(PageRequest.of(page, size))
 				   .stream()
 				   .map(KidView::of)
-				   .collect(toList());
+				   .toList();
 	}
 
-	@GetMapping(path = "{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<KidView> find(@PathVariable UUID id) {
 
 		return kids.findById(id)

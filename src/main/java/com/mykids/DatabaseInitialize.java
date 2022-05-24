@@ -30,9 +30,9 @@ class DatabaseInitialize {
 	
 	@Bean
 	@Transactional
-	CommandLineRunner registerRecords(KidsRepository kids, DailyRoutineRepository dailyRoutines) {
+	public CommandLineRunner registerRecords(KidsRepository kids, DailyRoutineRepository dailyRoutines) {
 
-		return (args) -> {
+		return args -> {
 			
 			Kid maria = Kid.builder()
 					.born(LocalDate.of(2012,Month.JULY,31))
