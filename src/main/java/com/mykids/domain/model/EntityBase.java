@@ -2,13 +2,11 @@ package com.mykids.domain.model;
 
 import java.util.UUID;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +22,7 @@ import lombok.Setter;
 public abstract class EntityBase {
 
 	@Id
-	@Type(type = "uuid-char")
+	//@Type(type = "uuid-char")
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	private UUID id;

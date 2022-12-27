@@ -6,12 +6,11 @@ package com.mykids.domain.model.person;
 import java.time.LocalDate;
 import java.time.Period;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-
 import com.mykids.domain.model.EntityBase;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -3,11 +3,10 @@
  */
 package com.mykids.domain.model.localization;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
 import com.mykids.domain.model.EntityBase;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -3,13 +3,12 @@
  */
 package com.mykids.domain.model.education;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-
 import com.mykids.domain.model.EntityBase;
 import com.mykids.domain.model.localization.Address;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
