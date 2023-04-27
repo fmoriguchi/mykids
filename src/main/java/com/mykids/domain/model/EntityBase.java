@@ -22,7 +22,6 @@ import lombok.Setter;
 public abstract class EntityBase {
 
 	@Id
-	//@Type(type = "uuid-char")
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	private UUID id;
