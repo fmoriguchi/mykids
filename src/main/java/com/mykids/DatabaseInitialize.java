@@ -9,7 +9,6 @@ import java.time.Month;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mykids.domain.model.diary.DailyRoutine;
 import com.mykids.domain.model.diary.DailyRoutineRepository;
@@ -27,14 +26,13 @@ import com.mykids.domain.model.person.Name;
  */
 @Configuration
 class DatabaseInitialize {
-	
+
 	@Bean
-	@Transactional
-	public CommandLineRunner registerRecords(KidsRepository kids, DailyRoutineRepository dailyRoutines) {
+    CommandLineRunner registerRecords(KidsRepository kids, DailyRoutineRepository dailyRoutines) {
 
 		return args -> {
 			
-			Kid maria = Kid.builder()
+			var maria = Kid.builder()
 					.born(LocalDate.of(2012,Month.JULY,31))
 					.gender(Gender.FEMALE)
 					.name(Name.builder().firstName("Maria")
@@ -43,7 +41,7 @@ class DatabaseInitialize {
 							            .build())
 					.build();
 			
-			Kid fabio = Kid.builder()
+			var fabio = Kid.builder()
 					.born(LocalDate.of(1982,Month.APRIL,15))
 					.gender(Gender.MALE)
 					.name(Name.builder().firstName("Fabio")
@@ -57,14 +55,14 @@ class DatabaseInitialize {
 			kids.save(fabio);
 			
 			
-			Nutrition nutrition = Nutrition.builder()
+			var nutrition = Nutrition.builder()
 											.breakfast(Eat.ENOUGH)
 											.lunch(Eat.LOT)
 											.coffebreak(Eat.NOTTING)
 											.dinner(Eat.GOOD)
 											.build();
 			
-			DailyRoutine today = DailyRoutine.builder()
+			var today = DailyRoutine.builder()
 											 .day(LocalDate.now())
 											 .kid(maria)
 											 .emotion(Emotion.HAPPY)

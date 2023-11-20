@@ -41,7 +41,7 @@ class DailyRoutineResource {
 	}
 
 	@GetMapping
-	public Collection<DailyRoutineView> all(@RequestParam(defaultValue = "0") Integer page, 
+	Collection<DailyRoutineView> all(@RequestParam(defaultValue = "0") Integer page, 
 			   								@RequestParam(defaultValue = "20") Integer size) {
 
 		return dailyRoutines.findAll(PageRequest.of(page, size))
@@ -51,7 +51,7 @@ class DailyRoutineResource {
 	}
 
 	@GetMapping("{id}")
-	public ResponseEntity<DailyRoutineView> find(@PathVariable UUID id) {
+	ResponseEntity<DailyRoutineView> find(@PathVariable UUID id) {
 
 		return dailyRoutines.findById(id)
 							.map(DailyRoutineView::by)
@@ -60,7 +60,7 @@ class DailyRoutineResource {
 	}
 
 	@PostMapping
-	public DailyRoutine store(@RequestBody DailyRoutineCreate dailyRoutine) {
+	DailyRoutine store(@RequestBody DailyRoutineCreate dailyRoutine) {
 
 		return dailyRoutines.save(dailyRoutine.to());
 	}
