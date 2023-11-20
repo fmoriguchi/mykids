@@ -36,13 +36,13 @@ class KidsResource {
 	}
 
 	@PostMapping
-	public KidView create(@RequestBody KidCreate kid) {
+	KidView create(@RequestBody KidCreate kid) {
 		
 		return KidView.of(kids.save(kid.to()));
 	}
 
 	@GetMapping
-	public Collection<KidView> all(@RequestParam(defaultValue = "0") Integer page, 
+	Collection<KidView> all(@RequestParam(defaultValue = "0") Integer page, 
 								   @RequestParam(defaultValue = "20") Integer size) {
 		
 		return kids.findAll(PageRequest.of(page, size))
@@ -52,7 +52,7 @@ class KidsResource {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<KidView> find(@PathVariable UUID id) {
+	ResponseEntity<KidView> find(@PathVariable UUID id) {
 
 		return kids.findById(id)
 				   .map(KidView::of)
