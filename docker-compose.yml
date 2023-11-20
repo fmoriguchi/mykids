@@ -1,8 +1,8 @@
 version: "3.3"
 
 services:
-  streamer:
-      image: fmoriguchi/mykids:0.0.3
+  mykids:
+      image: fmoriguchi/mykids:0.0.4
       build: .
       ports:
-        - "8080:8080"
+        - "80:8080"
