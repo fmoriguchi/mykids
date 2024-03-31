@@ -1,8 +1,6 @@
-version: "3.3"
-
 services:
   mykids:
-      image: fmoriguchi/mykids:0.0.4
+      image: fmoriguchi/mykids:0.0.5
       build: .
       ports:
         - "80:8080"
