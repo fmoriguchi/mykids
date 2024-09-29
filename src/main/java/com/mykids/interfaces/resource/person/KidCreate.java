@@ -13,9 +13,9 @@ import com.mykids.domain.model.person.Name;
  * @author fmoriguchi
  *
  */
-public record KidCreate(String firstName, String lastName, String nickName, LocalDate born, Gender gender) {
+record KidCreate(String firstName, String lastName, String nickName, LocalDate born, Gender gender) {
 	
-	public Kid to() {
+	Kid to() {
 		
 		return Kid.builder()
 				.born(born)

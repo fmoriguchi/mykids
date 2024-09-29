@@ -13,9 +13,9 @@ import com.mykids.domain.model.person.Kid;
  * @author fmoriguchi
  *
  */
-public record KidView(UUID id, String fullName, String nickName, LocalDate born, Gender gender, Integer age) {
+record KidView(UUID id, String fullName, String nickName, LocalDate born, Gender gender, Integer age) {
 
-	public static final KidView of(Kid kid) {
+	static final KidView of(Kid kid) {
 		
 		return new KidView(kid.getId(),
 						   kid.getName().getFullName(), 

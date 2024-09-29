@@ -31,20 +31,20 @@ class KidsResource {
 	private final KidsRepository kids;
 
 	KidsResource(KidsRepository kids) {
-		
+
 		this.kids = kids;
 	}
 
 	@PostMapping
 	KidView create(@RequestBody KidCreate kid) {
-		
+
 		return KidView.of(kids.save(kid.to()));
 	}
 
 	@GetMapping
 	Collection<KidView> all(@RequestParam(defaultValue = "0") Integer page, 
-								   @RequestParam(defaultValue = "20") Integer size) {
-		
+							@RequestParam(defaultValue = "20") Integer size) {
+
 		return kids.findAll(PageRequest.of(page, size))
 				   .stream()
 				   .map(KidView::of)
